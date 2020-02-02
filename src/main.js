@@ -2,6 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import $ from 'jquery';
+import { Haiku } from './haiku.js';
 
 function resetForm(){
   $("input#line1").val("");
@@ -16,10 +17,10 @@ $(document).ready(function(){
     let userLine1 = $("input#line1").val();
     let userLine2 = $("input#line2").val();
     let userLine3 = $("input#line3").val();
+    let haiku = new Haiku(userLine1,userLine2,userLine3);
 
-    console.log(userLine1);
-    console.log(userLine2);
-    console.log(userLine3);
+    console.log(haiku);
+
     resetForm();
   });
 });
