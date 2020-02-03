@@ -1,28 +1,20 @@
 export class Haiku {
-  constructor(line1,line2,line3){
+  constructor(line1){
     this.line1 = line1;
-    this.line2 = line2;
-    this.line3 = line3;
-    this.fullHaiku = `${this.line1} ${this.line2} ${this.line3}`;
-    this.haikuArray = this.fullHaiku.split(" ");
+    this.line1Array = this.line1.split(" ");
+    this.getVowelCount = 0;
     this.lastCharVowel = [];
     this.doubleVowel = [];
     this.lastTwoCharEs = [];
     this.silentCompound = [];
   }
-  getFullHaiku(){
-    return this.fullHaiku;
-  }
-  getHaikuWordArray(){
-    return this.haikuArray;
-  }
   getVowels(){
-    let vowels = this.fullHaiku.match(/[aeiou]/gi);
+    let vowels = this.line1.match(/[aeiou]/gi);
     return vowels;
   }
   getLastCharVowel() {
-    for (let i = 0; i < this.haikuArray.length; i ++) {
-      let word = this.haikuArray[i];
+    for (let i = 0; i < this.line1Array.length; i ++) {
+      let word = this.line1Array[i];
       let lastChar = word.charAt(word.length-1);
       let sliceAt = word.length-1;
       let newWord = word.slice(0,sliceAt);
@@ -37,8 +29,8 @@ export class Haiku {
     }
   }
   getDoubleVowel() {
-    for (let i = 0; i < this.haikuArray.length; i ++) {
-      let word = this.haikuArray[i];
+    for (let i = 0; i < this.line1Array.length; i ++) {
+      let word = this.line1Array[i];
       let regEx = /[aeiou]+[a+eiou]+/gi;
       if (word.length <= 2)  {
         this.doubleVowel.push(word);
@@ -51,8 +43,8 @@ export class Haiku {
     }
   }
   getLastTwoCharEs() {
-    for (let i = 0; i < this.haikuArray.length; i ++) {
-      let word = this.haikuArray[i];
+    for (let i = 0; i < this.line1Array.length; i ++) {
+      let word = this.line1Array[i];
       let sliceAt = word.length-2;
       let checkSlice = word.slice(word.length-2);
       let newWord = word.slice(0,sliceAt);
@@ -67,9 +59,9 @@ export class Haiku {
     }
   }
   getSilentCompounds(){
-    for (let i = 0; i < this.haikuArray.length; i ++) {
-      let word = this.haikuArray[i];
-      let regEx = /above|care|cave|cheese|driveway|else|eye|fire|fore|here}home|horse|house|life|noise|sauce|shore|some|same|skate|stage|take|time|type|ware|wave|waste|wide|wipe/gi;
+    for (let i = 0; i < this.line1Array.length; i ++) {
+      let word = this.line1Array[i];
+      let regEx = /above[^ ].|care[^ ].|cave[^ ].|cheese[^ ].|driveway[^ ].|else[^ ].|eye[^ ].|fire[^ ].|fore[^ ].|here[^ ].|home[^ ].|horse[^ ].|house[^ ].|life[^ ].|noise[^ ].|sauce[^ ].|shore[^ ].|some[^ ].|same[^ ].|skate[^ ].|stage[^ ].|take[^ ].|time[^ ].|type[^ ].|ware[^ ].|wave[^ ].|waste[^ ].|wide[^ ].|wipe[^ ]./gi;
       if(regEx.test(word)){
         this.silentCompound.push(word+" bingo");
       } else {
@@ -78,3 +70,5 @@ export class Haiku {
     }
   }
 }
+
+    // this.fullHaiku = `${this.line1} ${this.line2} ${this.line3}`;
