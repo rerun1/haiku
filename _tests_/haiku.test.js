@@ -28,28 +28,43 @@ describe('Haiku', () => {
     let vowels = haiku.getVowels();
     expect(vowels).toEqual(["I", "o", "e", "e", "e", "a", "o", "i", "a", "i", "e", "a", "e", "i", "o", "i", "e", "i"]);
   });
-  // test('Correctly returns the last vowel of words last letter is a vowel', ()=> {
-  //   let haiku = new Haiku(line1,line2,line3);
-  //   let haikuExceptions = haiku.getVowelExceptions();
-  //   expect(haikuExceptions).toEqual(["I","clos","my","eyes","and","try","t","imagin","all","th","impossibl","things"]);
-  // });
+  test('Correctly identify words in the full haiku array that end with vowels', ()=> {
+    let haiku = new Haiku(line1,line2,line3);
+    haiku.getLastCharVowel();
+    let vowelWordTest = haiku.lastCharVowel;
+    expect(vowelWordTest).toEqual(["I","clos","my","eyes","and","try","to","imagin","all","th","impossibl","things"]);
+  });
+  test('Correctly identify words in the full haiku array that have a two vowel string - also tests for 2 or more consecutive vowels', ()=> {
+    let haiku = new Haiku (line1,line2,line3);
+    let haiku2 = new Haiku("Haikus are easy","But sometimes they don't make sense","Arrrg greee moooat beu juus");
+
+    haiku.getDoubleVowel();
+    haiku2.getDoubleVowel();
+
+    let doubleVowelWordTest = haiku.doubleVowel;
+    let doubleVowelWordTest2 = haiku2.doubleVowel;
+
+    expect(doubleVowelWordTest).toEqual(["I","close","my","eyes","and","try","to","imagine","all","the","impossible","things"]);
+    expect(doubleVowelWordTest2).toEqual(["Hxkus","are","xsy","But","sometimes","they","don't","make","sense","Arrrg","grx","mxt","bx","jxs"]);
+  });
+  test('Correctly identify word with ending es', ()=> {
+    let haiku = new Haiku (line1,line2,line3);
+    let haiku2 = new Haiku("Haikus are easy","But sometimes they don't make sense","Arrrges greee moooates beu juus");
+    haiku.getLastTwoCharEs();
+    haiku2.getLastTwoCharEs();
+    let doubleVowelWordTest = haiku.lastTwoCharEs;
+    let doubleVowelWordTest2 = haiku2.lastTwoCharEs;
+    expect(doubleVowelWordTest).toEqual(["I","close","my","ey","and","try","to","imagine","all","the","impossible","things"]);
+    expect(doubleVowelWordTest2).toEqual(["Haikus","are","easy","But","sometim","they","don't","make","sense","Arrrg", "greee", "moooat", "beu", "juus"]);
+  });
+  test('Correctly break compound words', ()=> {
+    let haiku2 = new Haiku("Haikus are easy","But sometimes they don't make sense","Carefree caveman cheeseburger noisemaker typewriter");
+
+    haiku2.getSilentCompounds();
+
+    let compoundFix = haiku2.silentCompound;
+
+    expect(compoundFix).toEqual(["Haikus", "are", "easy", "But", "sometimes bingo", "they", "don't", "make", "sense", "Carefree bingo", "caveman bingo", "cheeseburger bingo", "noisemaker bingo", "typewriter bingo"]);
+  });
+
 });
-
-
-// class Haiku {
-//   constructor(line1,line2,line3){
-//     this.line1 = line1;
-//     this.line2 = line2;
-//     this.line3 = line3;
-//   }
-//   getVowelCount(){
-//     let fullHaiku = `${this.line1} ${this.line2} ${this.line3}`;
-//     let vowelCount = fullHaiku.match(/aeiou/gi);
-//     return vowelCount;
-//   }
-// }
-// const line1 = "I close my eyes and";
-// const line2 = "try to imagine all the";
-// const line3 = "impossible things";
-// let haiku = new Haiku(line1,line2,line3);
-// let fullHaiku = `${line1} ${line2} ${line3}`;
