@@ -12,18 +12,24 @@
       <form id="inputLines">
         <div class="form-group">
           <label for="line1">Enter your first line of 5 syllables:</label>
-          <input type="text" id="line1" class="form-control">
+          <input type="text" id="line1" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="line2">Enter your second line of 7 syllables:</label>
-          <input type="text" id="line2" class="form-control">
+          <input type="text" id="line2" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="userLine3">Enter your third line of 5 syllables:</label>
-          <input type="text" id="line3" class="form-control">
+          <input type="text" id="line3" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary">Create Haiku</button>
       </form>
+      <div id="answer">
+        <p id="firstLine">
+        <br><span class="right" id="firstLineRight"></span>
+        </p>
+      </div>
+
     </div>
   </body>
 </html>

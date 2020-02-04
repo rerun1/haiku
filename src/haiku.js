@@ -3,7 +3,6 @@ export class Haiku {
     this.line1 = line1;
     this.line2 = line2;
     this.line3 = line3;
-    this.line1Array = this.line1.split(" ");
     this.lineArray = [];
     this.vowelCount = 0;
     this.silentE = 0;
