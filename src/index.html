@@ -22,14 +22,31 @@
           <label for="userLine3">Enter your third line of 5 syllables:</label>
           <input type="text" id="line3" class="form-control" required>
         </div>
-        <button type="submit" class="btn btn-primary">Create Haiku</button>
+        <button type="submit" class="btn btn-primary mb-4">Create Haiku</button>
       </form>
-      <div id="answer">
-        <p id="firstLine">
-        <br><span class="right" id="firstLineRight"></span>
+      <div>
+        <p>
+          <span id="firstLine"></span><br>
+          <span id="secondLine"></span><br>
+          <span id="thirdLine"></span><br>
         </p>
       </div>
-
+      <div>
+        <ul class="right" id="linesRight">
+        </ul>
+      </div>
+      <div>
+        <ul class="wrong" id="linesWrong">
+        </ul>
+      </div>
     </div>
   </body>
 </html>
+<!-- <p>
+  <span id="firstLine"></span><br>
+  <span id="secondLine"></span><br>
+  <span id="thirdLine"></span><br>
+  <span class="right" id="firstLineRight"></span><br>
+  <span class="right" id="secondLineRight"></span><br>
+  <span class="right" id="thirdLineRight"></span><br>
+</p> -->

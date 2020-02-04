@@ -1,5 +1,14 @@
 .right {
-  font-size:8px;
+  font-size:10px;
   font-weight:bold;
   color:green;
+}
+.wrong {
+  font-size:10px;
+  font-weight:bold;
+  color:red;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
 }
